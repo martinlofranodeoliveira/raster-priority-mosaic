@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools==80.9.0", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "raster-priority-mosaic"
+version = "0.1.0"
+description = "Explicit offline GeoTIFF priority mosaics with validity, provenance and coverage"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+license = "MIT"
+authors = [{name = "Lofrano Tecnologia"}]
+dependencies = ["numpy==2.2.6", "rasterio==1.4.3", "pyproj==3.7.1"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3.13",
+  "Operating System :: POSIX :: Linux",
+  "Topic :: Scientific/Engineering :: GIS",
+]
+
+[project.optional-dependencies]
+test = ["pytest==8.3.5"]
+
+[project.scripts]
+raster-priority-mosaic = "raster_priority_mosaic.cli:main"
+
+[project.urls]
+Homepage = "https://lofranotecnologia.com.br"
+Repository = "https://github.com/martinlofranodeoliveira/raster-priority-mosaic"
+Issues = "https://github.com/martinlofranodeoliveira/raster-priority-mosaic/issues"
+
+[tool.setuptools.packages.find]
+include = ["raster_priority_mosaic*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-config --strict-markers"
